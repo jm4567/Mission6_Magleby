@@ -1,0 +1,49 @@
+@model Movies
+@{
+    Layout = "_Layout";
+}
+
+<title>Movie Collection Form</title>
+
+<div class="text-center">
+    <h1>Movie Collection Form</h1>
+    <p>Please fill out this form to add movies to Joel's Beloved Collection</p>
+    <form method="post">
+        <label asp-for="Category">Category</label>
+        <input asp-for="Category" required/>
+        <br/>
+        <label asp-for="Title">Title</label>
+        <input asp-for="Title" required/>
+        <br/>
+        <label asp-for="Year">Year</label>
+        <input asp-for="Year" required/>
+        <br/>
+        <label asp-for="Director">Director</label>
+        <input asp-for="Director" required/>
+        <br/>
+        <label asp-for="Rating">Rating</label>
+        <select asp-for="Rating" required>
+            <option value="G">G</option>
+            <option value="PG">PG</option>
+            <option value="PG13">PG-13</option>
+            <option value="R">R</option>
+        </select>
+        <br/>
+        <label asp-for="Edited">Edited (Optional)</label>
+        <div>
+            <input type="radio" asp-for="Edited" id="edited-yes" value="true" />
+            <label for="edited-yes">Yes</label>
+
+            <input type="radio" asp-for="Edited" id="edited-no" value="false" />
+            <label for="edited-no">No</label>
+        </div>
+        <br/>
+        <label asp-for="LentTo">Lent To (Optional): </label>
+        <input asp-for="LentTo">
+        <br/>
+        <label asp-for="Notes">Notes (Optional)</label>
+        <input asp-for="Notes" type="text" maxlength="25"/>
+        <br/>
+        <button type="submit"> Submit Movie</button>
+    </form>
+</div>
