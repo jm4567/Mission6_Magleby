@@ -28,11 +28,12 @@ public class HomeController : Controller
         return View("MovieForm");
     }
 
+    //return the movie form and make sure it resets
     public IActionResult MovieForm(Movies response)
     {
         _context.Movies.Add(response);
         _context.SaveChanges();
-        return View("MovieForm");
+        return RedirectToAction("MovieForm");
 
     }
     

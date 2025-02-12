@@ -1,6 +1,6 @@
 @model Movies
 @{
-    Layout = "_Layout";
+    Layout = "_Layout"; //use shared layout
 }
 
 <title>Movie Collection Form</title>
@@ -29,7 +29,7 @@
             <option value="R">R</option>
         </select>
         <br/>
-        <label asp-for="Edited">Edited (Optional)</label>
+        <label asp-for="Edited">Edited (Optional)</label> <!--radio buttons to make sure bool-->
         <div>
             <input type="radio" asp-for="Edited" id="edited-yes" value="true" />
             <label for="edited-yes">Yes</label>

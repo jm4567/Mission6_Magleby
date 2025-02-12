@@ -1,12 +1,14 @@
 using Microsoft.EntityFrameworkCore;
 
-namespace Mission6.Models;
-
-public class MovieCollectionContext : DbContext
+namespace Mission6.Models
 {
-    public MovieCollectionContext(DbContextOptions<MovieCollectionContext> options) : base(options)
+    // Database context for the "Movie Collection" app
+    public class MovieCollectionContext : DbContext
     {
-        
-    } 
-    public DbSet<Movies> Movies { get; set; }
+        // Constructor that accepts configuration options
+        public MovieCollectionContext(DbContextOptions<MovieCollectionContext> options) : base(options) { }
+
+        // Represents the "Movies" table in the database
+        public DbSet<Movies> Movies { get; set; }
+    }
 }
