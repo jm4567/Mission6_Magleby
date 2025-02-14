@@ -29,6 +29,7 @@ public class HomeController : Controller
     }
 
     //return the movie form and make sure it resets
+    [HttpPost]
     public IActionResult MovieForm(Movies response)
     {
         _context.Movies.Add(response);
