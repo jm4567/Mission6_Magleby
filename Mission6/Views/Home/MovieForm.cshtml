@@ -41,6 +41,12 @@
         <label asp-for="LentTo">Lent To (Optional): </label>
         <input asp-for="LentTo">
         <br/>
+        <label asp-for="CopiedToPlex">Copied To Plex?</label>
+        <select>
+            <option value="true">Yes</option>
+            <option value="false">No</option>
+        </select>
+        <br/>
         <label asp-for="Notes">Notes (Optional)</label>
         <input asp-for="Notes" type="text" maxlength="25"/>
         <br/>

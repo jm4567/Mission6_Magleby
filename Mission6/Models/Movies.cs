@@ -8,7 +8,7 @@ namespace Mission6.Models
         [Key] [Required] public int MovieID { get; set; }
 
         // Movie category (e.g., action, drama)
-        [Required] public string Category { get; set; } 
+        public string Category { get; set; } 
 
         // Movie title
         [Required] public string Title { get; set; }
@@ -17,16 +17,18 @@ namespace Mission6.Models
         [Required] public int Year { get; set; }
 
         // Director of the movie
-        [Required] public string Director { get; set; }
+        public string Director { get; set; }
 
         // Movie rating (e.g., PG, R)
-        [Required] public string Rating { get; set; }
+        public string Rating { get; set; }
 
         // Indicates if the movie was edited
-        public bool? Edited { get; set; }
+        [Required] public bool Edited { get; set; }
 
         // Person to whom the movie was lent
         public string? LentTo { get; set; }
+        
+        [Required] public bool CopiedToPlex { get; set; }
 
         // Notes about the movie, with a max length of 25 characters
         [MaxLength(25, ErrorMessage = "Notes cannot exceed 25 characters.")]
