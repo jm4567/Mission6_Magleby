@@ -9,11 +9,18 @@
     <h1>Movie Collection Form</h1>
     <p>Please fill out this form to add movies to Joel's Beloved Collection</p>
     <form method="post">
-        <label asp-for="Category">Category</label>
-        <input asp-for="Category" required/>
         <br/>
         <label asp-for="Title">Title</label>
         <input asp-for="Title" required/>
+        <br/>
+        <label asp-for="CategoryId">Category</label>
+        <select asp-for="CategoryId">
+            <option value="">Select a Category</option>
+            @foreach (Categories m in ViewBag.Categories)
+            {
+                <option value="@m.CategoryId">@m.CategoryName</option> //select id and then show them the name
+            }
+        </select>
         <br/>
         <label asp-for="Year">Year</label>
         <input asp-for="Year" required/>

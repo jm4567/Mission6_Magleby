@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Mission6.Models;
 using SQLitePCL;
 
@@ -25,6 +26,8 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult MovieForm()
     {
+        ViewBag.Categories = _context.Categories
+            .OrderBy(x => x.CategoryName).ToList();
         return View("MovieForm");
     }
 
@@ -37,5 +40,14 @@ public class HomeController : Controller
         return RedirectToAction("MovieForm");
 
     }
+    
+    public IActionResult JoelsMovies()
+    {
+        var joelsMovies = _context.Movies
+            .Include(x => x.Category).ToList()
+            .OrderBy(x => x.Title).ToList();
+
+        return View(joelsMovies);
+    }  
     
 }

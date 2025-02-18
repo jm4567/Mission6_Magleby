@@ -1,11 +1,13 @@
 @{
     Layout = "_Layout";
 }
-<table>
-    <thead>
+@model List<Movies>
+
+<table class="table table-bordered">
+    <thead class="fw-bold">
         <tr>
-            <td>Category</td>
             <td>Title</td>
+            <td>Category</td>
             <td>Year</td>
             <td>Director</td>
             <td>Rating</td>
@@ -15,7 +17,20 @@
             <td>Notes</td>
         </tr>
     </thead>
-    <tbody>
-    
-    </tbody>
+    @foreach (var x in Model) //razor code
+    {
+        <tbody>
+        <tr>
+            <td>@x.Title</td>
+            <td>@x.Category.CategoryName</td>
+            <td>@x.Year</td>
+            <td>@x.Director</td>
+            <td>@x.Rating</td>
+            <td>@x.Edited</td>
+            <td>@x.LentTo</td>
+            <td>@x.CopiedToPlex</td>
+            <td>@x.Notes</td>
+        </tr>
+        </tbody>
+    }
 </table>

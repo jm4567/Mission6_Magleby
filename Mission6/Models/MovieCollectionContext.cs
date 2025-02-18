@@ -10,5 +10,7 @@ namespace Mission6.Models
 
         // Represents the "Movies" table in the database
         public DbSet<Movies> Movies { get; set; }
+        
+        public DbSet<Categories> Categories { get; set; }
     }
 }
