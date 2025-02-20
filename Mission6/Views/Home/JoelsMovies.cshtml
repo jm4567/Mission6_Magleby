@@ -1,36 +1,55 @@
 @{
     Layout = "_Layout";
 }
-@model List<Movies>
+@using System.Net.Mime
+@model List<Movie>
 
-<table class="table table-bordered">
-    <thead class="fw-bold">
-        <tr>
-            <td>Title</td>
-            <td>Category</td>
-            <td>Year</td>
-            <td>Director</td>
-            <td>Rating</td>
-            <td>Edited</td>
-            <td>Lent To</td>
-            <td>Copied To Plex</td>
-            <td>Notes</td>
-        </tr>
-    </thead>
-    @foreach (var x in Model) //razor code
-    {
-        <tbody>
-        <tr>
-            <td>@x.Title</td>
-            <td>@x.Category.CategoryName</td>
-            <td>@x.Year</td>
-            <td>@x.Director</td>
-            <td>@x.Rating</td>
-            <td>@x.Edited</td>
-            <td>@x.LentTo</td>
-            <td>@x.CopiedToPlex</td>
-            <td>@x.Notes</td>
-        </tr>
-        </tbody>
-    }
-</table>
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Movie Collection</h2>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover align-middle text-center">
+            <thead class="table-primary">
+                <tr>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Year</th>
+                    <th>Director</th>
+                    <th>Rating</th>
+                    <th>Edited</th>
+                    <th>Lent To</th>
+                    <th>Copied To Plex</th>
+                    <th>Notes</th>
+                    <th colspan="2">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var x in Model)
+                {
+                    <tr>
+                        <td>@x.Title</td>
+                        <td>@x.Category?.CategoryName</td>
+                        <td>@x.Year</td>
+                        <td>@x.Director</td>
+                        <td>@x.Rating</td>
+                        <td>@(x.Edited)</td>
+                        <td>@x.LentTo</td>
+                        <td>@(x.CopiedToPlex)</td>
+                        <td>@x.Notes</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a class="btn btn-sm btn-info" asp-controller="Home" asp-action="Edit" asp-route-id="@x.MovieId">
+                                    <i class="bi bi-pencil-square"></i> Edit
+                                </a>
+                                <a class="btn btn-sm btn-danger" asp-controller="Home" asp-action="Delete" asp-route-id="@x.MovieId">
+                                    <i class="bi bi-trash"></i> Delete
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+

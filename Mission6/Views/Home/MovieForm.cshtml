@@ -1,4 +1,4 @@
-@model Movies
+@model Movie
 @{
     Layout = "_Layout"; //use shared layout
 }
@@ -9,14 +9,15 @@
     <h1>Movie Collection Form</h1>
     <p>Please fill out this form to add movies to Joel's Beloved Collection</p>
     <form method="post">
+        <input type="hidden" asp-for="MovieId"/>
         <br/>
         <label asp-for="Title">Title</label>
         <input asp-for="Title" required/>
         <br/>
         <label asp-for="CategoryId">Category</label>
         <select asp-for="CategoryId">
-            <option value="">Select a Category</option>
-            @foreach (Categories m in ViewBag.Categories)
+            <option value="">Select a Category</option> <!--drop down box of categories-->
+            @foreach (Category m in ViewBag.Categories) 
             {
                 <option value="@m.CategoryId">@m.CategoryName</option> //select id and then show them the name
             }
@@ -36,20 +37,19 @@
             <option value="R">R</option>
         </select>
         <br/>
-        <label asp-for="Edited">Edited (Optional)</label> <!--radio buttons to make sure bool-->
+        <label asp-for="Edited">Edited</label> <!--radio buttons to make sure bool-->
         <div>
-            <input type="radio" asp-for="Edited" id="edited-yes" value="true" />
+            <input type="radio" asp-for="Edited" id="edited-yes" value="true"/>
             <label for="edited-yes">Yes</label>
-
-            <input type="radio" asp-for="Edited" id="edited-no" value="false" />
+            <input type="radio" asp-for="Edited" id="edited-no" value="false"/>
             <label for="edited-no">No</label>
         </div>
         <br/>
         <label asp-for="LentTo">Lent To (Optional): </label>
         <input asp-for="LentTo">
         <br/>
-        <label asp-for="CopiedToPlex">Copied To Plex?</label>
-        <select>
+        <label asp-for="CopiedToPlex">Copied To Plex?</label> <!--drop down box of true/false values-->
+        <select asp-for="CopiedToPlex">
             <option value="true">Yes</option>
             <option value="false">No</option>
         </select>

@@ -9,8 +9,8 @@ namespace Mission6.Models
         public MovieCollectionContext(DbContextOptions<MovieCollectionContext> options) : base(options) { }
 
         // Represents the "Movies" table in the database
-        public DbSet<Movies> Movies { get; set; }
+        public DbSet<Movie> Movies { get; set; }
         
-        public DbSet<Categories> Categories { get; set; }
+        public DbSet<Category> Categories { get; set; }
     }
 }

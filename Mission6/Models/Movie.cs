@@ -3,23 +3,25 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Mission6.Models
 {
-    public class Movies
+    public class Movie
     {
         // Primary key for the movie
-        [Key] [Required] public int MovieID { get; set; }
+        [Key] [Required] public int MovieId { get; set; }
 
         
         // Movie category (e.g., action, drama)
         [ForeignKey("CategoryId")]
         public int? CategoryId { get; set; } 
-        public Categories Category { get; set; }
+        public Category? Category { get; set; }
         
 
         // Movie title
         [Required] public string Title { get; set; }
 
         // Release year of the movie
-        [Required] public int Year { get; set; }
+        [Required]     
+        [Range(1888, int.MaxValue, ErrorMessage = "Year must be 1888 or later.")]
+        public int Year { get; set; }
 
         // Director of the movie
         public string? Director { get; set; }

@@ -1,0 +1,9 @@
+@model Movie
+
+@{
+    Layout = null;
+}
+<!--making sure movie was submitted!-->
+<h2>@Model.Title  received into database. Thank you</h2>
+
+<a asp-controller="Home" asp-action="MovieForm">Return back to movie form</a>

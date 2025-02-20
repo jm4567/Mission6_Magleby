@@ -18,6 +18,14 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = /Users/jennamagleby/RiderProjects/Mission6/Mission6
 build_property._RazorSourceGeneratorDebug = 
 
+[/Users/jennamagleby/RiderProjects/Mission6/Mission6/Views/Home/Confirmation.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9Db25maXJtYXRpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/jennamagleby/RiderProjects/Mission6/Mission6/Views/Home/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9EZWxldGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/jennamagleby/RiderProjects/Mission6/Mission6/Views/Home/GettoKnowJoel.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9HZXR0b0tub3dKb2VsLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
